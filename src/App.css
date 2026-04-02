@@ -1,0 +1,521 @@
+/* ============================================
+   App.css – 전체 포트폴리오 스타일
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+/* ── 전역 리셋 ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f4f0;
+}
+
+/* ── CSS 변수 (전역) ── */
+:root {
+  --bg:     #f5f4f0;
+  --bg2:    #eeecea;
+  --text:   #1a1a1a;
+  --muted:  #888;
+  --accent: #2563eb;
+  --border: rgba(0, 0, 0, 0.08);
+  --card:   #ffffff;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.App {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+body {
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── pf-wrap ── */
+.pf-wrap {
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── 공통 섹션 ── */
+.section {
+  min-height: 100vh;
+  padding: 140px 6% 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.section-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 56px;
+  letter-spacing: -0.02em;
+}
+
+/* ── 스크롤 reveal ── */
+.reveal,
+.section-label,
+.section-title {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.visible,
+.section-label.visible,
+.section-title.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   NAV
+   ============================================ */
+.pf-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 6%;
+  background: rgba(245, 244, 240, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 300;
+  transition: color 0.25s;
+}
+.nav-links a:hover { color: var(--text); }
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero-section { background: var(--bg); }
+
+.hero-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 36px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  animation: fadeUp 0.8s 0.1s both;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.hero-title {
+  font-size: clamp(2.6rem, 8vw, 7rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+}
+.hero-title .line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.05em;
+}
+.hero-title .word {
+  display: inline-block;
+  animation: slideUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-title .line:nth-child(1) .word { animation-delay: 0.2s; }
+.hero-title .line:nth-child(2) .word { animation-delay: 0.35s; }
+
+.accent-text { color: var(--accent); }
+
+.hero-desc {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-weight: 300;
+  color: var(--muted);
+  max-width: 500px;
+  line-height: 1.9;
+  animation: fadeUp 0.8s 0.6s both;
+}
+
+.hero-btns {
+  margin-top: 48px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  animation: fadeUp 0.8s 0.75s both;
+}
+.btn-primary {
+  padding: 14px 32px;
+  background: var(--text);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 40px;
+  font-family: 'Space Mono', monospace;
+  transition: transform 0.2s, background 0.2s;
+}
+.btn-primary:hover { background: var(--accent); transform: translateY(-2px); }
+.btn-ghost {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 300;
+  font-family: 'Space Mono', monospace;
+  transition: color 0.2s;
+}
+.btn-ghost:hover { color: var(--text); }
+
+/* 스크롤 인디케이터 */
+.scroll-ind {
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.2em;
+  animation: fadeUp 0.8s 1s both;
+}
+.scroll-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* ============================================
+   타원 궤도 장식
+   ============================================ */
+.orbit-wrap {
+  position: absolute;
+  top: 50%;
+  right: 8%;
+  transform: translateY(-50%);
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* 궤도 링 – 타원형 */
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(37, 99, 235, 0.2);
+  animation: orbitSpin linear infinite;
+}
+.orbit-ring-1 { width: 160px; height: 100px; animation-duration: 6s; }
+.orbit-ring-2 { width: 220px; height: 140px; animation-duration: 9s; animation-direction: reverse; }
+.orbit-ring-3 { width: 280px; height: 180px; animation-duration: 13s; }
+
+/* 각 궤도의 점 (이모지) – 링이 돌 때 반대로 회전해서 항상 똑바로 보임 */
+.orbit-dot {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 22px;
+  animation: orbitCounter linear infinite;
+  line-height: 1;
+}
+.orbit-ring-1 .orbit-dot { animation-duration: 6s; }
+.orbit-ring-2 .orbit-dot { animation-duration: 9s; animation-direction: reverse; }
+.orbit-ring-3 .orbit-dot { animation-duration: 13s; }
+
+/* 중심 별 */
+.orbit-center {
+  font-size: 28px;
+  animation: pulse 3s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+/* 이모지가 뒤집히지 않도록 반대 방향으로 상쇄 */
+@keyframes orbitCounter {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to   { transform: translateX(-50%) rotate(-360deg); }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.15); }
+}
+
+/* ============================================
+   SKILLS (마퀴)
+   ============================================ */
+.skills-section { background: var(--bg); }
+
+.marquee-wrap {
+  overflow: hidden;
+  margin-bottom: 20px;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+.marquee-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+.marquee-track.reverse {
+  animation-direction: reverse;
+  animation-duration: 28s;
+}
+.marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  box-shadow: var(--shadow);
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: default;
+  transition: transform 0.25s, box-shadow 0.25s;
+  user-select: none;
+}
+.skill-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+}
+.skill-badge .ico { font-size: 20px; line-height: 1; }
+
+/* ============================================
+   PROJECTS
+   ============================================ */
+.projects-section { background: var(--bg2); }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+.project-card {
+  background: var(--card);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  padding: 40px 36px;
+  box-shadow: var(--shadow);
+  transition: opacity 0.6s, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s;
+}
+.project-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+}
+.project-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.2em;
+  margin-bottom: 20px;
+}
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+.project-desc {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 28px;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag {
+  font-size: 11px;
+  font-family: 'Space Mono', monospace;
+  color: var(--accent);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+
+/* ============================================
+   CONTACT
+   ============================================ */
+.contact-section { background: var(--bg); }
+
+.contact-title {
+  font-size: clamp(2.2rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 64px;
+}
+.contact-list { border-top: 1px solid var(--border); }
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: padding-left 0.3s;
+}
+.contact-item:hover { padding-left: 10px; }
+.contact-item:hover .c-arr { transform: translate(4px, -4px); color: var(--accent); }
+.c-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  min-width: 90px;
+  letter-spacing: 0.15em;
+}
+.c-val { flex: 1; padding: 0 20px; font-size: 1rem; font-weight: 500; }
+.c-arr { color: var(--muted); font-size: 20px; transition: transform 0.2s, color 0.2s; }
+
+/* ============================================
+   ABOUT (stagger)
+   ============================================ */
+.about-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.about-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.pf-footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 6%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.pf-footer span {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+/* ============================================
+   CHERRY BLOSSOM
+   ============================================ */
+.cherry-blossom {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 200;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+.cherry-blossom span {
+  font-size: 32px;
+  line-height: 1;
+  display: block;
+  transform-origin: 50% 50%;
+}
+.cherry-blossom:hover span {
+  animation: cherryRotate 1.5s linear infinite;
+}
+
+/* ============================================
+   KEYFRAMES
+   ============================================ */
+@keyframes slideUp {
+  from { transform: translateY(110%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(8px); }
+}
+@keyframes cherryRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ============================================
+   반응형
+   ============================================ */
+@media (max-width: 768px) {
+  .section { padding: 120px 5% 80px; }
+  .pf-nav { padding: 16px 5%; }
+  .nav-links { gap: 20px; }
+  .hero-btns { flex-direction: column; align-items: flex-start; }
+  .contact-item { flex-wrap: wrap; gap: 8px; }
+  .c-val { padding: 0; }
+  .orbit-wrap { display: none; } /* 모바일에서 궤도 숨김 */
+}
