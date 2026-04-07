@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 export default function About() {
   const containerRef = useRef(null);
@@ -7,10 +7,9 @@ export default function About() {
     const observer = new IntersectionObserver(
       ([e]) => {
         if (e.isIntersecting) {
-          // 자식 요소들 순차적으로 등장 (stagger 효과)
           const items = containerRef.current?.querySelectorAll('.about-item');
           items?.forEach((el, i) => {
-            setTimeout(() => el.classList.add('visible'), i * 300);
+            setTimeout(() => el.classList.add('visible'), i * 250);
           });
         }
       },
@@ -21,35 +20,15 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="section" ref={containerRef} style={{ textAlign: 'center' }}>
+    <section id="about" className="section about-section" ref={containerRef}>
 
-      <span className="about-item section-label" style={{ justifyContent: 'center' }}>
-        INTRODUCTION
-      </span>
+      <p className="about-item section-label">ABOUT</p>
 
-      <h1 className="about-item" style={{
-        fontSize: 'clamp(2.5rem, 8vw, 4.5rem)',
-        fontWeight: 800,
-        lineHeight: 1.2,
-        margin: '0 0 2rem 0',
-        opacity: 0,
-        transform: 'translateY(30px)',
-        transition: 'opacity 0.8s ease, transform 0.8s ease',
-      }}>
-        ABOUT ME
-      </h1>
+      <h2 className="about-item about-title">
+        흐름을 이해하는 개발자
+      </h2>
 
-      <p className="about-item" style={{
-        fontSize: 'clamp(1rem, 2vw, 1.25rem)',
-        color: 'var(--muted)',
-        maxWidth: '680px',
-        lineHeight: 1.9,
-        wordBreak: 'keep-all',
-        margin: '0 auto',
-        opacity: 0,
-        transform: 'translateY(30px)',
-        transition: 'opacity 0.8s ease, transform 0.8s ease',
-      }}>
+      <p className="about-item about-desc">
         고등학교 IT모바일과를 시작으로 GTQ, 웹디자인개발기능사를 취득하며
         화면 구현의 재미를 알게 되었습니다.<br /><br />
         HTML·CSS·JavaScript로 직접 사이트를 구현하면서 서버와 데이터까지
@@ -60,18 +39,8 @@ export default function About() {
         사용자 화면 감각과 서버 안정성을 함께 고려하는 개발자로 성장하겠습니다.
       </p>
 
-      <div className="about-item" style={{
-        marginTop: '3rem',
-        width: '60px',
-        height: '2px',
-        background: 'var(--accent)',
-        marginInline: 'auto',
-        opacity: 0,
-        transform: 'translateY(30px)',
-        transition: 'opacity 0.8s ease, transform 0.8s ease',
-      }} />
+      <div className="about-item about-line" />
 
     </section>
-    
   );
 }
