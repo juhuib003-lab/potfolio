@@ -49,6 +49,56 @@ const PROJECTS = [
     link: 'https://github.com/juhuib003-lab/rpa-project.git',
     pptLink: 'https://www.canva.com/design/DAHEYP6Dids/2KtbXtFvGsZCot_lYr_83A/edit?utm_content=DAHEYP6Dids&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton',
   },
+  {
+    num: '03',
+    title: '웹 퍼블리셔 포트폴리오',
+    desc: '개인 포트폴리오 웹사이트 제작. HTML·CSS 기반 레이아웃 설계, JavaScript·jQuery로 인터랙션 구현 및 직관적인 UI/UX와 페이지 이동 구조 구성.',
+    detail: '웹 퍼블리싱 작업물을 한눈에 확인할 수 있는 메인 페이지를 설계하며 사용자 경험 중심의 화면 구현 역량을 키웠습니다.',
+    tags: ['HTML5', 'CSS3', 'JavaScript', 'jQuery'],
+    period: '',
+    link: 'https://github.com/juhuib003-lab/publishing-portfolio.git',
+    siteLink: 'https://juhuib003-lab.github.io/publishing-portfolio/poplhome.html',
+  },
+  {
+    num: '04',
+    title: '허닭 페이지 제작',
+    desc: '허닭 웹사이트를 참고한 반응형 웹 퍼블리싱 프로젝트. 상품 hover 시 장바구니 아이콘 애니메이션 구현, 미디어쿼리 기반 모바일·태블릿 대응.',
+    detail: '이벤트 중복 및 레이아웃 깨짐 문제를 직접 해결하며 반응형 구현과 jQuery 인터랙션 완성도를 높였습니다.',
+    tags: ['HTML5', 'CSS3', 'JavaScript', 'jQuery'],
+    period: '',
+    link: 'https://github.com/juhuib003-lab/publishing-portfolio.git',
+    siteLink: 'https://juhuib003-lab.github.io/publishing-portfolio/hurdak.html',
+  },
+  {
+    num: '05',
+    title: '아디다스 페이지 제작',
+    desc: '아디다스 웹사이트를 참고한 반응형 웹 퍼블리싱 프로젝트. setInterval 배너 애니메이션, 스크롤 기반 배경색 전환, Top 버튼 색상 자동 전환 구현.',
+    detail: '스크롤 이벤트와 스타일 충돌 문제를 조건 분기로 해결하며 동적 인터랙션 구현 역량을 쌓았습니다.',
+    tags: ['HTML5', 'CSS3', 'JavaScript', 'jQuery'],
+    period: '',
+    link: 'https://github.com/juhuib003-lab/publishing-portfolio.git',
+    siteLink: 'https://juhuib003-lab.github.io/publishing-portfolio/popl33.html',
+  },
+  {
+    num: '06',
+    title: '호시담 페이지 제작',
+    desc: '호시담 웹사이트를 참고한 반응형 웹 퍼블리싱 프로젝트. 객실·카페·예약 정보를 직관적으로 배치하고 비디오 배경 및 버튼 hover 애니메이션으로 생동감을 구현.',
+    detail: '메뉴 클릭 이동 위치 어긋남을 offset 조정으로 해결하며 UX를 함께 고려하는 퍼블리싱 역량을 강화했습니다.',
+    tags: ['HTML5', 'CSS3', 'JavaScript', 'jQuery'],
+    period: '',
+    link: 'https://github.com/juhuib003-lab/publishing-portfolio.git',
+    siteLink: 'https://juhuib003-lab.github.io/publishing-portfolio/index.html',
+  },
+  {
+    num: '07',
+    title: '메가박스 페이지 제작',
+    desc: '메가박스 웹사이트를 참고한 반응형 웹 퍼블리싱 프로젝트. 배너 슬라이드·인디케이터 구현, 이벤트 카드 겹침 레이아웃으로 시각적 강조 UI 구성.',
+    detail: '애니메이션 타이밍 충돌과 모바일 터치 영역 문제를 직접 해결하며 반응형 인터랙션 완성도를 높였습니다.',
+    tags: ['HTML5', 'CSS3', 'JavaScript', 'jQuery'],
+    period: '',
+    link: 'https://github.com/juhuib003-lab/publishing-portfolio.git',
+    siteLink: 'https://juhuib003-lab.github.io/publishing-portfolio/popl44.html',
+  },
 ];
 
 const CERTIFICATIONS = [
@@ -232,6 +282,12 @@ export default function Home() {
                 {p.pptLink && (
                   <a href={p.pptLink} target="_blank" rel="noreferrer" style={{display:'flex',flexDirection:'column',alignItems:'center',gap:'4px',marginTop:'12px'}}>
                     <span style={{fontSize:'13px',fontFamily:'Space Mono, monospace',letterSpacing:'0.05em'}}>PPT</span>
+                    <span>↗</span>
+                  </a>
+                )}
+                {p.siteLink && (
+                  <a href={p.siteLink} target="_blank" rel="noreferrer" style={{display:'flex',flexDirection:'column',alignItems:'center',gap:'4px',marginTop:'12px'}}>
+                    <span style={{fontSize:'13px',fontFamily:'Space Mono, monospace',letterSpacing:'0.05em'}}>Site</span>
                     <span>↗</span>
                   </a>
                 )}
