@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import '../App.css';
-import profileImg from '../증명사진.jpg';
+const profileImg = '/potfolio/profile.jpg';
 
 const INFO = {
   name: '박주희',
@@ -38,6 +38,7 @@ const PROJECTS = [
     tags: ['Java', 'Spring Boot', 'JavaScript', 'Oracle DB', 'Mybatis'],
     period: '2025.12.01 – 2025.12.12',
     link: 'https://github.com/juhuib003-lab/first-project.git',
+    pptLink: 'https://canva.link/5ni6jog0pl2f1zy',
   },
   {
     num: '02',
@@ -51,6 +52,16 @@ const PROJECTS = [
   },
   {
     num: '03',
+    title: 'ESS 배터리 제조 공정 통합 관리 시스템',
+    desc: 'ESS 배터리 제조 공정의 생산·재고·물류 데이터를 통합 관리하는 ERP 시스템. 다단계 BOM 기반 연쇄 재고 차감 및 온프레미스 AI·RPA 파이프라인을 적용한 엔터프라이즈 아키텍처 구현.',
+    detail: 'DB 구조와 데이터 흐름을 먼저 설계한 뒤 기능을 구현하는 방식의 중요성을 체감하며, 재무 데이터를 Python으로 연동해 엑셀 차트로 시각화하는 과정에서 백엔드-프론트 전체 흐름을 직접 경험했습니다.',
+    tags: ['Java', 'Spring Boot', 'JSP/JSTL', 'MyBatis', 'MariaDB', 'Python'],
+    period: '2026.03.11 - 2026.4.30',
+    link: 'https://github.com/san123452/ESS_ERP.git',
+    pdfLink: '/potfolio/ESS배터리제조공장ERP시스템.pdf',
+  },
+  {
+    num: '04',
     title: '웹 퍼블리셔 포트폴리오',
     desc: '개인 포트폴리오 웹사이트 제작. HTML·CSS 기반 레이아웃 설계, JavaScript·jQuery로 인터랙션 구현 및 직관적인 UI/UX와 페이지 이동 구조 구성.',
     detail: '웹 퍼블리싱 작업물을 한눈에 확인할 수 있는 메인 페이지를 설계하며 사용자 경험 중심의 화면 구현 역량을 키웠습니다.',
@@ -60,7 +71,7 @@ const PROJECTS = [
     siteLink: 'https://juhuib003-lab.github.io/publishing-portfolio/poplhome.html',
   },
   {
-    num: '04',
+    num: '05',
     title: '허닭 페이지 제작',
     desc: '허닭 웹사이트를 참고한 반응형 웹 퍼블리싱 프로젝트. 상품 hover 시 장바구니 아이콘 애니메이션 구현, 미디어쿼리 기반 모바일·태블릿 대응.',
     detail: '이벤트 중복 및 레이아웃 깨짐 문제를 직접 해결하며 반응형 구현과 jQuery 인터랙션 완성도를 높였습니다.',
@@ -70,34 +81,34 @@ const PROJECTS = [
     siteLink: 'https://juhuib003-lab.github.io/publishing-portfolio/hurdak.html',
   },
   {
-    num: '05',
+    num: '06',
     title: '아디다스 페이지 제작',
     desc: '아디다스 웹사이트를 참고한 반응형 웹 퍼블리싱 프로젝트. setInterval 배너 애니메이션, 스크롤 기반 배경색 전환, Top 버튼 색상 자동 전환 구현.',
     detail: '스크롤 이벤트와 스타일 충돌 문제를 조건 분기로 해결하며 동적 인터랙션 구현 역량을 쌓았습니다.',
     tags: ['HTML5', 'CSS3', 'JavaScript', 'jQuery'],
     period: '',
     link: 'https://github.com/juhuib003-lab/publishing-portfolio.git',
-    siteLink: 'https://juhuib003-lab.github.io/publishing-portfolio/popl33.html',
+    siteLink: 'https://juhuib003-lab.github.io/publishing-portfolio/adidas.html',
   },
   {
-    num: '06',
+    num: '07',
     title: '호시담 페이지 제작',
     desc: '호시담 웹사이트를 참고한 반응형 웹 퍼블리싱 프로젝트. 객실·카페·예약 정보를 직관적으로 배치하고 비디오 배경 및 버튼 hover 애니메이션으로 생동감을 구현.',
     detail: '메뉴 클릭 이동 위치 어긋남을 offset 조정으로 해결하며 UX를 함께 고려하는 퍼블리싱 역량을 강화했습니다.',
     tags: ['HTML5', 'CSS3', 'JavaScript', 'jQuery'],
     period: '',
     link: 'https://github.com/juhuib003-lab/publishing-portfolio.git',
-    siteLink: 'https://juhuib003-lab.github.io/publishing-portfolio/index.html',
+    siteLink: 'https://juhuib003-lab.github.io/publishing-portfolio/hoshidam.html',
   },
   {
-    num: '07',
+    num: '08',
     title: '메가박스 페이지 제작',
     desc: '메가박스 웹사이트를 참고한 반응형 웹 퍼블리싱 프로젝트. 배너 슬라이드·인디케이터 구현, 이벤트 카드 겹침 레이아웃으로 시각적 강조 UI 구성.',
     detail: '애니메이션 타이밍 충돌과 모바일 터치 영역 문제를 직접 해결하며 반응형 인터랙션 완성도를 높였습니다.',
     tags: ['HTML5', 'CSS3', 'JavaScript', 'jQuery'],
     period: '',
     link: 'https://github.com/juhuib003-lab/publishing-portfolio.git',
-    siteLink: 'https://juhuib003-lab.github.io/publishing-portfolio/popl44.html',
+    siteLink: 'https://juhuib003-lab.github.io/publishing-portfolio/megabox.html',
   },
 ];
 
@@ -264,7 +275,12 @@ export default function Home() {
             >
               <div className="project-left">{p.num}</div>
               <div className="project-main">
-                <h3 className="project-title">{p.title}</h3>
+                <div style={{display:'flex',alignItems:'center',gap:'10px',flexWrap:'wrap'}}>
+                  <h3 className="project-title">{p.title}</h3>
+                  {p.status === 'wip' && (
+                    <span style={{fontSize:'11px',fontFamily:'Space Mono, monospace',letterSpacing:'0.08em',padding:'3px 8px',border:'1px solid #2563eb',color:'#2563eb',borderRadius:'4px',fontWeight:600,whiteSpace:'nowrap'}}>진행중</span>
+                  )}
+                </div>
                 <p className="project-period">{p.period}</p>
                 <p className="project-desc">{p.desc}</p>
                 <p className="project-detail">→ {p.detail}</p>
@@ -282,6 +298,12 @@ export default function Home() {
                 {p.pptLink && (
                   <a href={p.pptLink} target="_blank" rel="noreferrer" style={{display:'flex',flexDirection:'column',alignItems:'center',gap:'4px',marginTop:'12px'}}>
                     <span style={{fontSize:'13px',fontFamily:'Space Mono, monospace',letterSpacing:'0.05em'}}>PPT</span>
+                    <span>↗</span>
+                  </a>
+                )}
+                {p.pdfLink && (
+                  <a href={p.pdfLink} target="_blank" rel="noreferrer" style={{display:'flex',flexDirection:'column',alignItems:'center',gap:'4px',marginTop:'12px'}}>
+                    <span style={{fontSize:'13px',fontFamily:'Space Mono, monospace',letterSpacing:'0.05em'}}>PDF</span>
                     <span>↗</span>
                   </a>
                 )}

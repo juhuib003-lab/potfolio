@@ -550,6 +550,7 @@ body {
   letter-spacing: -0.02em;
   margin-bottom: 6px;
   color: var(--text);
+  text-align: left;
 }
 .project-period {
   font-family: 'Space Mono', monospace;
